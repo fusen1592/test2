@@ -56,7 +56,7 @@ $(document).ready(function () {
       }
     });
 
-    $("#resultCount").text(`Searched ${resultCount} result(s)`);
+    $("#resultCount").text(`検索結果：${resultCount}件`);
   });
 
   $('#search').on('input', function () {
@@ -64,8 +64,8 @@ $(document).ready(function () {
     const searchTerm = $(this).val().toLowerCase();
 
     $('tbody tr').each(function () {
-      const name = $(this).find('td:nth-child(3)').text().toLowerCase();
-      const publisher = $(this).find('td:nth-child(4)').text().toLowerCase();
+      const name = $(this).find('td:nth-child(4)').text().toLowerCase();
+      const publisher = $(this).find('td:nth-child(5)').text().toLowerCase();
       
       const match = (searchBy === 'name' && name.includes(searchTerm)) ||
                     (searchBy === 'publisher' && publisher.includes(searchTerm));
@@ -73,4 +73,5 @@ $(document).ready(function () {
       $(this).toggle(match);
     });
   });
+  
 });
